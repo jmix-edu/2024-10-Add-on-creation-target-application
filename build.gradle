@@ -1,5 +1,5 @@
 plugins {
-    id 'io.jmix' version '2.3.1'
+    id 'io.jmix' version '2.3.4'
     id 'java'
 }
 
@@ -7,7 +7,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'com.vaadin'
 
 jmix {
-    bomVersion = '2.3.1'
+    bomVersion = '2.3.4'
 }
 
 group = 'com.company'
@@ -18,9 +18,12 @@ repositories {
     maven {
         url 'https://global.repo.jmix.io/repository/public'
     }
+    mavenLocal()
 }
 
 dependencies {
+    implementation 'com.company:view-audit-starter:0.0.1-SNAPSHOT'
+
     implementation 'io.jmix.core:jmix-core-starter'
     implementation 'io.jmix.pessimisticlock:jmix-pessimisticlock-starter'
     implementation 'io.jmix.pessimisticlock:jmix-pessimisticlock-flowui-starter'
@@ -43,6 +46,8 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'io.jmix.flowui:jmix-flowui-test-assist'
+    implementation 'io.jmix.audit:jmix-audit-starter'
+    implementation 'io.jmix.audit:jmix-audit-flowui-starter'
 }
 
 test {

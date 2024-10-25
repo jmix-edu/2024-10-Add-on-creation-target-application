@@ -14,6 +14,8 @@ import java.util.UUID;
 @JmixEntity
 @Table(name = "PROJECT", indexes = {
         @Index(name = "IDX_PROJECT_MANAGER", columnList = "MANAGER_ID")
+}, uniqueConstraints = {
+        @UniqueConstraint(name = "IDX_PROJECT_UNQ", columnNames = {"NAME"})
 })
 @Entity
 public class Project {
